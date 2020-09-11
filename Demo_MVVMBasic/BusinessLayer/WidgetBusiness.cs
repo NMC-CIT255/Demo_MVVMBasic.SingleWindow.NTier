@@ -89,12 +89,12 @@ namespace Demo_MVVMBasic.BusinessLayer
         public List<Widget> AllWidgets()
         {
             //
-            // TODO update when accessing data file
+            // TODO - update when accessing data file
             //
 
-            //return GetAllWidgets() as List<Widget>;
+            return GetAllWidgets() as List<Widget>;
 
-            return SeedData.GetAllWidgets();
+            //return SeedData.GetAllWidgets();
         }
 
         /// <summary>

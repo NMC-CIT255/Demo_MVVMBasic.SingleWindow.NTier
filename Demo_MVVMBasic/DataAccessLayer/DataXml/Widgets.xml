@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Source: https://tvtropes.org/pmwiki/pmwiki.php/Characters/TheFlintstones
+-->
+<ArrayOfWidget>
+  <Widget>
+    <Name>Furry</Name>
+    <Color>Red</Color>
+    <UnitPrice>4.95</UnitPrice>
+    <CurrentInventory>10</CurrentInventory>
+  </Widget>
+  <Widget>
+    <Name>Woody</Name>
+    <Color>Brown</Color>
+    <UnitPrice>6.95</UnitPrice>
+    <CurrentInventory>15</CurrentInventory>
+  </Widget>
+  <Widget>
+    <Name>Rubbery</Name>
+    <Color>Black</Color>
+    <UnitPrice>3.95</UnitPrice>
+    <CurrentInventory>20</CurrentInventory>
+  </Widget>
+  <Widget>
+    <Name>Glassy</Name>
+    <Color>Clear</Color>
+    <UnitPrice>9.95</UnitPrice>
+    <CurrentInventory>2</CurrentInventory>
+  </Widget>
+</ArrayOfWidget>

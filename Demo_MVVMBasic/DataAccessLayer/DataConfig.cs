@@ -14,8 +14,7 @@ namespace Demo_MVVMBasic.DataAccessLayer
         //public static DataType dataType = DataType.XML;
         public static DataType dataType = DataType.JSON;
 
-        public static string DataPathJson => @"DataAccessLayer\DataJson\FlintstoneCharacters.json";
-        public static string DataPathXml => @"DataAccessLayer\DataXml\FlintstoneCharacters.xml";
-        public static string ImagePath => @"\DataAccessLayer\Images\";
+        public static string DataPathJson => @"DataAccessLayer\DataJson\Widgets.json";
+        public static string DataPathXml => @"DataAccessLayer\DataXml\Widgets.xml";
     }
 }

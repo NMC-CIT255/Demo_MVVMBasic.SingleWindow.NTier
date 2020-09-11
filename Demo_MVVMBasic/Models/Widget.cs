@@ -8,7 +8,8 @@ using Demo_MVVMBasic;
 namespace Demo_MVVMBasic
 {
     public class Widget : ObservableObject
-    {        private string _name;
+    {        
+        private string _name;
         private string _color;
         private double _unitPrice;
         private int _currentInventory;

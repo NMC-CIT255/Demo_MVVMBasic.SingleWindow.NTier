@@ -28,8 +28,9 @@ namespace Demo_MVVMBasic.BusinessLayer
             {
                 _widgets = _dataService.ReadAll() as List<Widget>;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                string message = e.Message;
                 throw;
             }
         }
