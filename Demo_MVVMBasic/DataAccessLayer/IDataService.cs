@@ -9,7 +9,10 @@ namespace Demo_MVVMBasic.DataAccessLayer
 {
     public interface IDataService
     {
-        IEnumerable<Widget> ReadAll();
-        void WriteAll(IEnumerable<Widget> characters);
+        IEnumerable<Widget> GetAll();
+        Widget GetById(string name);
+        void Add(Widget character);
+        void Update(Widget character);
+        void Delete(string name);
     }
 }

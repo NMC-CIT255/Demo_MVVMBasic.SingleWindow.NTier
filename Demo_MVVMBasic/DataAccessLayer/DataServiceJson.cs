@@ -7,12 +7,14 @@ using System.Xml.Serialization;
 using System.IO;
 using Newtonsoft;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Demo_MVVMBasic.DataAccessLayer
 {
     public class DataServiceJson : IDataService
     {
         private string _dataFilePath;
+        private List<Widget> _widgets;
 
 
         /// <summary>
@@ -31,7 +33,6 @@ namespace Demo_MVVMBasic.DataAccessLayer
 
                     widgets = JsonConvert.DeserializeObject<List<Widget>>(jsonString);
                 }
-
             }
             catch (Exception)
             {
@@ -45,9 +46,9 @@ namespace Demo_MVVMBasic.DataAccessLayer
         /// write the current list of widgets to the json data file
         /// </summary>
         /// <param name="widgets">list of widgets</param>
-        public void WriteAll(IEnumerable<Widget> widgets)
+        public void WriteAll()
         {
-            string jsonString = JsonConvert.SerializeObject(widgets, Formatting.Indented);
+            string jsonString = JsonConvert.SerializeObject(_widgets, Formatting.Indented);
 
             try
             {
@@ -63,9 +64,39 @@ namespace Demo_MVVMBasic.DataAccessLayer
             }
         }
 
+        IEnumerable<Widget> IDataService.GetAll()
+        {
+            return ReadAll();
+        }
+
+        Widget IDataService.GetById(string name)
+        {
+            return _widgets.FirstOrDefault(w => w.Name == name);
+        }
+
+        void IDataService.Add(Widget widget)
+        {
+            _widgets.Add(widget);
+            WriteAll();
+        }
+
+        void IDataService.Update(Widget widget)
+        {
+            _widgets.Remove(_widgets.FirstOrDefault(w => w.Name == widget.Name));
+            _widgets.Add(widget);
+            WriteAll();
+        }
+
+        void IDataService.Delete(string name)
+        {
+            _widgets.Remove(_widgets.FirstOrDefault(w => w.Name == name));
+            WriteAll();
+        }
+
         public DataServiceJson()
         {
-            _dataFilePath = DataConfig.DataPathJson;
+            _dataFilePath = DataServiceConfig.DataPathJson;
+            _widgets = ReadAll() as List<Widget>;
         }
     }
 }

@@ -20,35 +20,17 @@ namespace Demo_MVVMBasic.BusinessLayer
         /// </summary>
         public WidgetRepository()
         {
-            _dataService = SetDataService();
+            DataServiceConfig dataService = new DataServiceConfig();
+            _dataService = dataService.SetDataService();
 
             try
             {
-                _widgets = _dataService.ReadAll() as List<Widget>;
+                _widgets = _dataService.GetAll() as List<Widget>;
             }
             catch (Exception e)
             {
                 string message = e.Message;
                 throw;
-            }
-        }
-
-        /// <summary>
-        /// instantiate and return the correct data service (XML or Json) 
-        /// </summary>
-        /// <returns>data service object</returns>
-        private IDataService SetDataService()
-        {
-            switch (DataConfig.dataType)
-            {
-                case DataType.XML:
-                    return new DataServiceXml();
-
-                case DataType.JSON:
-                    return new DataServiceJson();
-
-                default:
-                    throw new Exception();
             }
         }
 
@@ -79,8 +61,7 @@ namespace Demo_MVVMBasic.BusinessLayer
         {
             try
             {
-                _widgets.Add(widget);
-                _dataService.WriteAll(_widgets);
+                _dataService.Add(widget);
             }
             catch (Exception)
             {
@@ -96,9 +77,7 @@ namespace Demo_MVVMBasic.BusinessLayer
         {
             try
             {
-                _widgets.Remove(_widgets.FirstOrDefault(c => c.Name == name));
-
-                _dataService.WriteAll(_widgets);
+                _dataService.Delete(name);
             }
             catch (Exception)
             {
@@ -114,10 +93,7 @@ namespace Demo_MVVMBasic.BusinessLayer
         {
             try
             {
-                _widgets.Remove(_widgets.FirstOrDefault(c => c.Name == widget.Name));
-                _widgets.Add(widget);
-
-                _dataService.WriteAll(_widgets);
+                _dataService.Update(widget);
             }
             catch (Exception)
             {
