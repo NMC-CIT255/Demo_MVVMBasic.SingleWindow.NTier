@@ -60,6 +60,7 @@
     <Compile Include="BusinessLayer\WidgetBusiness.cs" />
     <Compile Include="DataAccessLayer\DataServiceConfig.cs" />
     <Compile Include="DataAccessLayer\DataServiceJson.cs" />
+    <Compile Include="DataAccessLayer\DataServiceMongoDb.cs" />
     <Compile Include="DataAccessLayer\DataServiceXml.cs" />
     <Compile Include="DataAccessLayer\DataType.cs" />
     <Compile Include="DataAccessLayer\IDataService.cs" />

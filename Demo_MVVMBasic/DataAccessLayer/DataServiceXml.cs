@@ -61,30 +61,30 @@ namespace Demo_MVVMBasic.DataAccessLayer
             }
         }
 
-        IEnumerable<Widget> IDataService.GetAll()
+        public IEnumerable<Widget> GetAll()
         {
             return ReadAll();
         }
 
-        Widget IDataService.GetById(string name)
+        public Widget GetById(string name)
         {
             return _widgets.FirstOrDefault(w => w.Name == name);
         }
 
-        void IDataService.Add(Widget widget)
+        public void Add(Widget widget)
         {
             _widgets.Add(widget);
             WriteAll();
         }
 
-        void IDataService.Update(Widget widget)
+        public void Update(Widget widget)
         {
             _widgets.Remove(_widgets.FirstOrDefault(w => w.Name == widget.Name));
             _widgets.Add(widget);
             WriteAll();
         }
 
-        void IDataService.Delete(string name)
+        public void Delete(string name)
         {
             _widgets.Remove(_widgets.FirstOrDefault(w => w.Name == name));
             WriteAll();

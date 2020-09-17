@@ -11,9 +11,13 @@ namespace Demo_MVVMBasic.DataAccessLayer
         //
         // set the type of persistence
         //
-        public static DataType dataType = DataType.XML;
-        //public static DataType dataType = DataType.JSON;
+        private DataType _dataType = DataType.XML;
+        //private DataType _dataType = DataType.JSON;
+        //private DataType _dataType = DataType.MONGODB;
 
+        //
+        // set data paths for the Json and XML files
+        //
         public static string DataPathJson => @"DataAccessLayer\DataJson\Widgets.json";
         public static string DataPathXml => @"DataAccessLayer\DataXml\Widgets.xml";
 
@@ -23,7 +27,7 @@ namespace Demo_MVVMBasic.DataAccessLayer
         /// <returns>data service object</returns>
         public IDataService SetDataService()
         {
-            switch (DataServiceConfig.dataType)
+            switch (_dataType)
             {
                 case DataType.XML:
                     return new DataServiceXml();
