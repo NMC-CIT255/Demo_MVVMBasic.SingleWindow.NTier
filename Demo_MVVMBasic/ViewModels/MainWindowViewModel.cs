@@ -24,6 +24,7 @@ namespace Demo_MVVMBasic
         private Widget _widgetToAdd;
         private Widget _widgetToEdit;
         private string _widgetOperationFeedback;
+        private WidgetBusiness _widgetBusiness;
 
         public ObservableCollection<Widget> Widgets { get; set; }
 
@@ -73,8 +74,8 @@ namespace Demo_MVVMBasic
 
         public MainWindowViewModel()
         {
-            WidgetBusiness widgetBusiness = new WidgetBusiness();
-            Widgets = new ObservableCollection<Widget>(widgetBusiness.AllWidgets());
+            _widgetBusiness = new WidgetBusiness();
+            Widgets = new ObservableCollection<Widget>(_widgetBusiness.AllWidgets());
 
             if (Widgets.Any()) SelectedWidget = Widgets[0];
 
@@ -113,6 +114,9 @@ namespace Demo_MVVMBasic
             {
                 if (WidgetToAdd != null)
                 {
+                    // TODO - handle I/O Errors
+                    _widgetBusiness.AddWidget(WidgetToAdd);
+
                     Widgets.Add(WidgetToAdd);
                     WidgetOperationFeedback = "New Widget Added";
                     SelectedWidget = WidgetToAdd;
@@ -141,6 +145,9 @@ namespace Demo_MVVMBasic
             {
                 if (WidgetToEdit != null)
                 {
+                    // TODO - handle I/O Errors
+                    _widgetBusiness.UpdateWidget(WidgetToEdit);
+
                     Widget widgetToDelete = SelectedWidget;
                     Widgets.Add(WidgetToEdit);
                     SelectedWidget = WidgetToEdit;
@@ -171,6 +178,9 @@ namespace Demo_MVVMBasic
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
+                        // TODO - handle I/O Errors
+                        _widgetBusiness.DeleteWidget(SelectedWidget.Name);
+
                         Widgets.Remove(SelectedWidget);
                         WidgetOperationFeedback = "Widget Deleted";
 

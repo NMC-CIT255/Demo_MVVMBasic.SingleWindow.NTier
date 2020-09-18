@@ -12,6 +12,7 @@ namespace Demo_MVVMBasic.DataAccessLayer
     public class DataServiceMongoDb : IDataService
     {
         private List<Widget> _widgets;
+        private IMongoCollection<Widget> _collection;
 
         public DataServiceMongoDb()
         {
@@ -37,9 +38,9 @@ namespace Demo_MVVMBasic.DataAccessLayer
             {
                 MongoClient dbClient = new MongoClient(MongoDbDataSettings.connectionString);
                 IMongoDatabase database = dbClient.GetDatabase(MongoDbDataSettings.databaseName);
-                IMongoCollection<Widget> collection = database.GetCollection<Widget>(MongoDbDataSettings.collectionName);
+                IMongoCollection<Widget> _collection = database.GetCollection<Widget>(MongoDbDataSettings.collectionName);
 
-                _widgets = collection.Find(Builders<Widget>.Filter.Empty).ToList();
+                _widgets = _collection.Find(Builders<Widget>.Filter.Empty).ToList();
 
                 return true;
             }
@@ -51,12 +52,12 @@ namespace Demo_MVVMBasic.DataAccessLayer
 
         public IEnumerable<Widget> GetAll()
         {
-            throw new NotImplementedException();
+            return _widgets;
         }
 
-        public void Add(Widget character)
+        public void Add(Widget widget)
         {
-            throw new NotImplementedException();
+            _collection.InsertOne(widget);
         }
 
         public void Delete(string name)
@@ -69,7 +70,7 @@ namespace Demo_MVVMBasic.DataAccessLayer
             throw new NotImplementedException();
         }
 
-        public void Update(Widget character)
+        public void Update(Widget widget)
         {
             throw new NotImplementedException();
         }
