@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Demo_MVVMBasic;
+using MongoDB.Bson;
 
 namespace Demo_MVVMBasic
 {
@@ -13,6 +14,9 @@ namespace Demo_MVVMBasic
         private string _color;
         private double _unitPrice;
         private int _currentInventory;
+
+        // Id property for MongoDb objects
+        public ObjectId Id { get; set; }
 
         public string Name
         {

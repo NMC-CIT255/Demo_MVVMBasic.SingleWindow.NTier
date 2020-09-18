@@ -73,8 +73,6 @@ namespace Demo_MVVMBasic
 
         public MainWindowViewModel()
         {
-            //Widgets = new ObservableCollection<Widget>(SeedData.GetAllWidgets());
-
             WidgetBusiness widgetBusiness = new WidgetBusiness();
             Widgets = new ObservableCollection<Widget>(widgetBusiness.AllWidgets());
 

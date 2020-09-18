@@ -16,7 +16,6 @@ namespace Demo_MVVMBasic.DataAccessLayer
         private string _dataFilePath;
         private List<Widget> _widgets;
 
-
         /// <summary>
         /// read the json file and load a list of widget objects
         /// </summary>

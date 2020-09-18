@@ -89,7 +89,7 @@ namespace Demo_MVVMBasic.BusinessLayer
         public List<Widget> AllWidgets()
         {
             //
-            // TODO - update when accessing data file
+            // TODO - switch between seed data and persistence
             //
 
             return GetAllWidgets() as List<Widget>;

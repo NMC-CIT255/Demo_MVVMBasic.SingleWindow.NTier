@@ -11,9 +11,9 @@ namespace Demo_MVVMBasic.DataAccessLayer
         //
         // set the type of persistence
         //
-        private DataType _dataType = DataType.XML;
+        //private DataType _dataType = DataType.XML;
         //private DataType _dataType = DataType.JSON;
-        //private DataType _dataType = DataType.MONGODB;
+        private DataType _dataType = DataType.MONGODB;
 
         //
         // set data paths for the Json and XML files
@@ -34,6 +34,9 @@ namespace Demo_MVVMBasic.DataAccessLayer
 
                 case DataType.JSON:
                     return new DataServiceJson();
+
+                case DataType.MONGODB:
+                    return new DataServiceMongoDb();
 
                 default:
                     throw new Exception();

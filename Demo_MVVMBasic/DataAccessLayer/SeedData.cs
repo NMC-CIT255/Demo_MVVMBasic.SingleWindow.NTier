@@ -34,6 +34,14 @@ namespace Demo_MVVMBasic.DataAccessLayer
                     Color = "Black",
                     UnitPrice = 3.95,
                     CurrentInventory = 20
+                },
+
+                new Widget()
+                {
+                    Name = "Glassy",
+                    Color = "Clear",
+                    UnitPrice = 9.95,
+                    CurrentInventory = 2
                 }
             };
         }

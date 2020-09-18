@@ -3,6 +3,8 @@ using Demo_MVVMBasic.DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Demo_MVVMBasic.BusinessLayer
 {
@@ -50,6 +52,7 @@ namespace Demo_MVVMBasic.BusinessLayer
         /// <returns></returns>
         public Widget GetById(string name)
         {
+            // TODO - correct linq variable
             return _widgets.FirstOrDefault(c => c.Name == name);
         }
 
