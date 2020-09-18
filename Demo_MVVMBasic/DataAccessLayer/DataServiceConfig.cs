@@ -11,8 +11,8 @@ namespace Demo_MVVMBasic.DataAccessLayer
         //
         // set the type of persistence
         //
-        //private DataType _dataType = DataType.XML;
-        private DataType _dataType = DataType.JSON;
+        private DataType _dataType = DataType.XML;
+        //private DataType _dataType = DataType.JSON;
         //private DataType _dataType = DataType.MONGODB;
 
         //

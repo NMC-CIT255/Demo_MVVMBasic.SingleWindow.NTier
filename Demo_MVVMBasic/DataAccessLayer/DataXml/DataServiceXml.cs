@@ -45,7 +45,7 @@ namespace Demo_MVVMBasic.DataAccessLayer
         /// <param name="_widgets">list of widgets</param>
         public void WriteAll()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Widget>), new XmlRootAttribute("Widgets"));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Widget>), new XmlRootAttribute("ArrayOfWidget"));
 
             try
             {
